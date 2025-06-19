@@ -7,10 +7,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            50: '#FEF3C7',
+                            100: '#FDE68A',
+                            200: '#FCD34D',
+                            300: '#FBBF24',
+                            400: '#F59E0B',
+                            500: '#D97706',
+                            600: '#B45309',
+                            700: '#92400E',
+                            800: '#78350F',
+                            900: '#451A03',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         .hero-bg {
-            background: linear-gradient(120deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 89, 179, 0.85) 100%), 
-                        url('https://images.unsplash.com/photo-1504309092620-4d0ecdebced0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            background: linear-gradient(120deg, rgba(146, 64, 14, 0.9) 0%, rgba(180, 83, 9, 0.85) 100%),
+                         url('https://images.unsplash.com/photo-1504309092620-4d0ecdebced0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
         }
         .value-icon {
             transition: transform 0.3s ease;
@@ -33,7 +55,7 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background-color: #0059b3;
+            background-color: #D97706;
         }
         .timeline-line {
             position: absolute;
@@ -41,29 +63,82 @@
             top: 28px;
             bottom: 0;
             width: 2px;
-            background-color: #0059b3;
+            background-color: #D97706;
         }
         @media (min-width: 768px) {
             .history-container {
-                background: linear-gradient(90deg, transparent 50%, #f1f9ff 50%);
+                background: linear-gradient(90deg, transparent 50%, #FEF3C7 50%);
             }
+        }
+        .team-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: rgba(251, 191, 36, 0.2);
+            line-height: 1;
+        }
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #E5E7EB;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .indicator.active {
+            background-color: #F59E0B;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #FCD34D, #D97706);
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-700">
+<body class="font-sans bg-amber-50 text-gray-900">
     <!-- Navigation -->
-    <nav class="bg-navy-900 text-white sticky top-0 z-50 shadow-md">
+    <nav class="bg-amber-700 text-white sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-bold flex items-center">
-                <i class="fas fa-hard-hat text-yellow-400 mr-2"></i>
+                <i class="fas fa-hard-hat text-amber-300 mr-2"></i>
                 <span>Joseton Construction</span>
             </a>
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="hover:text-yellow-300 transition">Home</a>
-                <a href="#" class="text-yellow-300 font-semibold">About</a>
-                <a href="#" class="hover:text-yellow-300 transition">Services</a>
-                <a href="#" class="hover:text-yellow-300 transition">Projects</a>
-                <a href="#" class="hover:text-yellow-300 transition">Contact</a>
+                <a href="#" class="hover:text-amber-200 transition">Home</a>
+                <a href="#" class="text-amber-300 font-semibold">About</a>
+                <a href="#" class="hover:text-amber-200 transition">Services</a>
+                <a href="#" class="hover:text-amber-200 transition">Projects</a>
+                <a href="#" class="hover:text-amber-200 transition">Contact</a>
             </div>
             <button class="md:hidden text-xl">
                 <i class="fas fa-bars"></i>
@@ -76,9 +151,9 @@
         <div class="absolute inset-0 bg-black opacity-30"></div>
         <div class="container mx-auto px-4 relative z-10">
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-4 leading-tight">
-                About <span class="text-yellow-300">Joseton Construction</span>
+                About <span class="text-amber-300">Joseton Construction</span>
             </h1>
-            <div class="border-t-2 border-yellow-400 w-32 mx-auto mb-6"></div>
+            <div class="border-t-2 border-amber-400 w-32 mx-auto mb-6"></div>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto">Building More Than Structures — We Build Trust</p>
         </div>
     </header>
@@ -89,15 +164,14 @@
         <section class="py-16">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-blue-900 mb-4">Our Story</h2>
-                    <div class="border-t-2 border-yellow-400 w-20 mx-auto"></div>
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Our Story</h2>
                 </div>
                 
                 <div class="flex flex-col md:flex-row items-center gap-10">
                     <div class="md:w-1/2">
                         <div class="rounded-xl overflow-hidden shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1554774853-d50f9c681bc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Construction team working" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1554774853-d50f9c681bc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                  alt="Construction team working" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="md:w-1/2">
@@ -116,15 +190,15 @@
         </section>
 
         <!-- Mission Statement -->
-        <section class="py-16 bg-blue-50">
+        <section class="py-16 bg-amber-100">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto border-l-4 border-blue-700 pl-8 py-10">
-                    <h3 class="text-2xl font-semibold text-blue-900 mb-4">Our Mission</h3>
+                <div class="max-w-4xl mx-auto border-l-4 border-amber-500 pl-8 py-10">
+                    <h3 class="text-2xl font-semibold text-amber-900 mb-4">Our Mission</h3>
                     <p class="text-xl mb-6">
                         We believe that a great building isn't just made of bricks and cement — it's built with care, planning, and passion.
                     </p>
                     <p class="text-xl">
-                        Our mission is to deliver excellent work that lasts, while making our clients feel informed, respected, and confident every step of the the way.
+                        Our mission is to deliver excellent work that lasts, while making our clients feel informed, respected, and confident every step of the way.
                     </p>
                 </div>
             </div>
@@ -134,8 +208,7 @@
         <section class="py-16 history-container">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-blue-900 mb-4">Our Journey</h2>
-                    <div class="border-t-2 border-yellow-400 w-20 mx-auto"></div>
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Our Journey</h2>
                 </div>
                 
                 <div class="relative max-w-3xl mx-auto">
@@ -144,7 +217,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-xl font-bold text-blue-900 mb-2">2010 - Humble Beginnings</h4>
+                            <h4 class="text-xl font-bold text-amber-900 mb-2">2010 - Humble Beginnings</h4>
                             <p>Founded with just a team of 5 passionate builders and one small truck. Our first project was a residential extension in Gaborone.</p>
                         </div>
                     </div>
@@ -152,7 +225,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-xl font-bold text-blue-900 mb-2">2014 - First Major Project</h4>
+                            <h4 class="text-xl font-bold text-amber-900 mb-2">2014 - First Major Project</h4>
                             <p>Awarded our first commercial project – a shopping complex in Francistown. Expanded our team to 25 skilled professionals.</p>
                         </div>
                     </div>
@@ -160,7 +233,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-xl font-bold text-blue-900 mb-2">2018 - National Recognition</h4>
+                            <h4 class="text-xl font-bold text-amber-900 mb-2">2018 - National Recognition</h4>
                             <p>Received Botswana Construction Excellence Award for our work on the modern Maun Community Center.</p>
                         </div>
                     </div>
@@ -168,7 +241,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-xl font-bold text-blue-900 mb-2">2023 - Expanding Horizons</h4>
+                            <h4 class="text-xl font-bold text-amber-900 mb-2">2023 - Expanding Horizons</h4>
                             <p>Currently employing over 120 construction professionals across 4 regional offices, working on projects nationwide.</p>
                         </div>
                     </div>
@@ -180,41 +253,40 @@
         <section class="py-16">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-blue-900 mb-4">Our Values</h2>
-                    <div class="border-t-2 border-yellow-400 w-20 mx-auto"></div>
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Our Values</h2>
                     <p class="text-lg mt-4 max-w-2xl mx-auto">We stand by principles that define our work and relationships with clients.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="value-item bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow duration-300">
-                        <div class="value-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-handshake text-blue-700 text-2xl"></i>
+                        <div class="value-icon bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-amber-700 text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Integrity</h3>
+                        <h3 class="text-xl font-bold text-amber-900 mb-3">Integrity</h3>
                         <p>We do what we say, and we say what we do. Honesty is our foundation.</p>
                     </div>
                     
                     <div class="value-item bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow duration-300">
-                        <div class="value-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-clipboard-check text-blue-700 text-2xl"></i>
+                        <div class="value-icon bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-clipboard-check text-amber-700 text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Accountability</h3>
+                        <h3 class="text-xl font-bold text-amber-900 mb-3">Accountability</h3>
                         <p>We take full responsibility for every project, big or small.</p>
                     </div>
                     
                     <div class="value-item bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow duration-300">
-                        <div class="value-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-tools text-blue-700 text-2xl"></i>
+                        <div class="value-icon bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tools text-amber-700 text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Craftsmanship</h3>
+                        <h3 class="text-xl font-bold text-amber-900 mb-3">Craftsmanship</h3>
                         <p>We care about details because our clients do too.</p>
                     </div>
                     
                     <div class="value-item bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow duration-300">
-                        <div class="value-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-hands-helping text-blue-700 text-2xl"></i>
+                        <div class="value-icon bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-amber-700 text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Community</h3>
+                        <h3 class="text-xl font-bold text-amber-900 mb-3">Community</h3>
                         <p>We hire local, build local, and grow local.</p>
                     </div>
                 </div>
@@ -222,18 +294,18 @@
         </section>
 
         <!-- Team Message -->
-        <section class="py-16 bg-blue-50">
+        <section class="py-16 bg-amber-100">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
                     <div class="md:w-1/3 flex justify-center">
                         <div class="rounded-full overflow-hidden border-4 border-white shadow-lg w-64 h-64">
-                            <img src="https://images.unsplash.com/photo-1580655653883-ebbc3f2ab117?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Construction professional" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1580655653883-ebbc3f2ab117?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                  alt="Construction professional" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="md:w-2/3 text-center md:text-left">
-                        <h2 class="text-3xl font-serif font-bold text-blue-900 mb-6">Message from Our Team</h2>
-                        <div class="border-l-4 border-blue-700 pl-6 py-2 mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-amber-900 mb-6">Message from Our Team</h2>
+                        <div class="border-l-4 border-amber-500 pl-6 py-2 mb-8">
                             <p class="text-lg italic">
                                 "Every home we build is part of someone's future. That's why we treat every project like it's our own — with respect, care, and precision."
                             </p>
@@ -249,29 +321,147 @@
             </div>
         </section>
 
+        <!-- Leadership Team Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Our Leadership Team</h2>
+                    <p class="text-lg mt-4 max-w-2xl mx-auto">Experienced professionals dedicated to excellence in construction</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="team-card bg-amber-50 p-8 rounded-xl shadow-lg text-center">
+                        <div class="rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-amber-300">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="CEO" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 text-amber-900">Thabo Molefe</h3>
+                        <p class="text-amber-600 font-semibold">Founder & CEO</p>
+                        <p class="mt-4">With 25+ years in construction, Thabo leads our vision with expertise and passion for quality building.</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card bg-amber-50 p-8 rounded-xl shadow-lg text-center">
+                        <div class="rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-amber-300">
+                            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0e160de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Operations Director" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 text-amber-900">Lerato Kgosi</h3>
+                        <p class="text-amber-600 font-semibold">Operations Director</p>
+                        <p class="mt-4">Lerato oversees all project execution, ensuring timelines and quality standards are consistently met.</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card bg-amber-50 p-8 rounded-xl shadow-lg text-center">
+                        <div class="rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-amber-300">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Finance Director" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mt-6 text-amber-900">Odirile Nkosi</h3>
+                        <p class="text-amber-600 font-semibold">Finance Director</p>
+                        <p class="mt-4">Odirile manages our financial strategy, ensuring sustainable growth and value for our clients.</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 bg-amber-100">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">What Our Clients Say</h2>
+                    <p class="text-lg mt-4 max-w-2xl mx-auto">Real experiences from our valued customers</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg relative">
+                        <div class="flex items-center mb-6">
+                            <div class="rounded-full overflow-hidden w-16 h-16 border-2 border-amber-300">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-amber-900">Mpho Tshwene</h3>
+                                <p class="text-amber-600">Residential Project, Gaborone</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic relative z-10">
+                            "Joseton Construction transformed our home renovation into a dream come true. Their attention to detail and commitment to quality exceeded our expectations. The team was professional, respectful, and delivered on time despite challenges."
+                        </p>
+                        <div class="mt-6 flex">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg relative">
+                        <div class="flex items-center mb-6">
+                            <div class="rounded-full overflow-hidden w-16 h-16 border-2 border-amber-300">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-amber-900">Tebogo Molefe</h3>
+                                <p class="text-amber-600">Commercial Project, Francistown</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic relative z-10">
+                            "We chose Joseton for our new office complex, and it was the best decision we made. Their expertise in sustainable construction saved us 25% on energy costs. The project manager kept us informed at every stage, and the final result was beyond impressive."
+                        </p>
+                        <div class="mt-6 flex">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-block px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition duration-300 font-semibold">
+                        <i class="fas fa-comments mr-2"></i>View All Testimonials
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Stats Section -->
-        <section class="py-16 bg-blue-900 text-white">
+        <section class="py-16 bg-amber-700 text-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-serif font-bold mb-4">Building Botswana</h2>
-                    <div class="border-t-2 border-yellow-400 w-20 mx-auto"></div>
+                    <div class="border-t-2 border-amber-400 w-20 mx-auto"></div>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold mb-2 text-yellow-300">13+</div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-amber-300">13+</div>
                         <div>Years Experience</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold mb-2 text-yellow-300">250+</div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-amber-300">250+</div>
                         <div>Projects Completed</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold mb-2 text-yellow-300">120+</div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-amber-300">120+</div>
                         <div>Skilled Professionals</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold mb-2 text-yellow-300">98%</div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-amber-300">98%</div>
                         <div>Client Satisfaction</div>
                     </div>
                 </div>
@@ -280,28 +470,28 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white pt-16 pb-8">
+    <footer class="bg-amber-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-hard-hat text-yellow-400 mr-2"></i>
+                        <i class="fas fa-hard-hat text-amber-300 mr-2"></i>
                         Joseton Construction
                     </h3>
-                    <p class="text-gray-300">
+                    <p class="text-amber-100">
                         Building Botswana's future with integrity and craftsmanship since 2010.
                     </p>
                     <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
                 <div>
                     <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-amber-100">
                         <li><a href="#" class="hover:text-white transition">Home</a></li>
                         <li><a href="#" class="hover:text-white transition">About Us</a></li>
                         <li><a href="#" class="hover:text-white transition">Services</a></li>
@@ -313,7 +503,7 @@
                 
                 <div>
                     <h3 class="text-lg font-bold mb-4">Our Services</h3>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-amber-100">
                         <li><a href="#" class="hover:text-white transition">Residential Construction</a></li>
                         <li><a href="#" class="hover:text-white transition">Commercial Buildings</a></li>
                         <li><a href="#" class="hover:text-white transition">Renovations & Remodeling</a></li>
@@ -324,24 +514,24 @@
                 
                 <div>
                     <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-                    <ul class="space-y-3 text-gray-300">
+                    <ul class="space-y-3 text-amber-100">
                         <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-400"></i>
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-300"></i>
                             <span>Plot 123, Broadhurst<br>Gaborone, Botswana</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-phone mr-3 text-yellow-400"></i>
+                            <i class="fas fa-phone mr-3 text-amber-300"></i>
                             <span>+267 123 4567</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-yellow-400"></i>
+                            <i class="fas fa-envelope mr-3 text-amber-300"></i>
                             <span>info@josetonconstruction.co.bw</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-blue-700 text-center text-gray-400">
+            <div class="pt-8 border-t border-amber-800 text-center text-amber-200">
                 <p>&copy; 2023 Joseton Construction. Built with pride in Botswana.</p>
             </div>
         </div>
@@ -354,7 +544,18 @@
             
             valueItems.forEach(item => {
                 item.addEventListener('touchstart', function() {
-                    this.classList.toggle('bg-blue-50');
+                    this.classList.toggle('bg-amber-100');
+                });
+            });
+            
+            // Team card hover effect for desktop
+            const teamCards = document.querySelectorAll('.team-card');
+            teamCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('transform', 'scale-105');
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('transform', 'scale-105');
                 });
             });
         });
