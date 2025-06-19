@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services – Joseton Construction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#FEF3C7',
+              100: '#FDE68A',
+              200: '#FCD34D',
+              300: '#FBBF24',
+              400: '#F59E0B',
+              500: '#D97706',
+              600: '#B45309',
+              700: '#92400E',
+              800: '#78350F',
+              900: '#451A03',
+            },
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-in-out',
+            'fade-in-up': 'fadeInUp 0.8s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.active {
+      max-height: 500px;
+      transition: max-height 0.5s ease-in;
+    }
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+    .highlight-text::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 10px;
+      background-color: rgba(251, 191, 36, 0.3);
+      z-index: -1;
+      transition: height 0.3s ease;
+    }
+    .highlight-text:hover::after {
+      height: 15px;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+  
+  <!-- Header with improved mobile menu -->
+  <header class="bg-primary-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold flex items-center">
+        <i class="fas fa-building mr-2 text-primary-300"></i>
+        <span>Joseton<span class="text-primary-300">Construction</span></span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="hover:text-primary-300 transition-colors duration-300 flex items-center">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a href="services.html" class="text-primary-300 font-semibold flex items-center">
+          <i class="fas fa-list-check mr-1"></i> Services
+        </a>
+        <a href="contact.html" class="hover:text-primary-300 transition-colors duration-300 flex items-center">
+          <i class="fas fa-phone mr-1"></i> Contact
+        </a>
+      </nav>
+      
+      <!-- Mobile menu button -->
+      <button id="mobileMenuButton" class="md:hidden text-xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu bg-primary-800 md:hidden">
+      <div class="container mx-auto px-6 py-2">
+        <div class="flex flex-col space-y-4 py-4">
+          <a href="index.html" class="hover:text-primary-300 transition-colors duration-300 border-b border-primary-700 pb-2">
+            <i class="fas fa-home mr-2"></i> Home
+          </a>
+          <a href="services.html" class="text-primary2-300 font-semibold border-b border-primary-700 pb-2">
+            <i class="fas fa-list-check mr-2"></i> Services
+          </a>
+          <a href="contact.html" class="hover:text-primary-300 transition-colors duration-300">
+            <i class="fas fa-phone mr-2"></i> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with construction background -->
+  <section class="bg-gray-900 text-white py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/60 z-0"></div>
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-cover bg-center bg-no-repeat z-0"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+        Building <span class="highlight-text">Excellence</span> In Every Project
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90 animate-fade-in" style="animation-delay: 0.2s;">
+        Comprehensive construction services tailored to bring your vision to life with precision and quality craftsmanship.
+      </p>
+      <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+        <a href="#services" class="inline-block bg-white text-primary-800 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          Explore Our Services <i class="fas fa-chevron-right ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="container mx-auto px-6 py-16 relative overflow-hidden">
+    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+    
+    <div class="relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-primary-100 text-primary-700 px-4 py-1.5 rounded-full mb-4 font-medium text-sm tracking-wide animate-fade-in">
+          OUR SERVICES
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in" style="animation-delay: 0.1s;">
+          Complete <span class="text-primary-600">Construction & Renovation Services</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+          From initial design to final inspection, we handle every aspect of your construction project with professionalism.
+        </p>
+      </div>
+      
+      <!-- Services Grid with all services -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Cards will now be 12 total -->
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-drafting-compass text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Design Consultation</h3>
+          <p class="text-gray-600 leading-relaxed">Professional guidance to help shape your project vision into feasible plans.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-calculator text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Cost Estimating</h3>
+          <p class="text-gray-600 leading-relaxed">Accurate budgeting and cost projections for all phases of construction.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-layer-group text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Foundation Construction</h3>
+          <p class="text-gray-600 leading-relaxed">Solid, durable foundations built to structural specifications and local codes.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-home text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Roofing Installation</h3>
+          <p class="text-gray-600 leading-relaxed">Expert roof installations using high-quality materials for lasting protection.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-paint-roller text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Painting</h3>
+          <p class="text-gray-600 leading-relaxed">Interior and exterior painting services with premium finishes.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-faucet text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Plumbing</h3>
+          <p class="text-gray-600 leading-relaxed">Complete plumbing systems installation and repair by licensed professionals.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-bolt text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Electrical</h3>
+          <p class="text-gray-600 leading-relaxed">Safe, code-compliant electrical systems installation and maintenance.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-hammer text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Demolition</h3>
+          <p class="text-gray-600 leading-relaxed">Safe, controlled demolition services for remodel and new construction prep.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-tree text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Landscaping</h3>
+          <p class="text-gray-600 leading-relaxed">Complete outdoor space design and installation.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-hard-hat text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Site Supervision</h3>
+          <p class="text-gray-600 leading-relaxed">Daily oversight to ensure quality, safety and project milestones are met.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-home text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Residential Construction</h3>
+          <p class="text-gray-600 leading-relaxed">Complete home building from foundation to finish.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-building text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Commercial Construction</h3>
+          <p class="text-gray-600 leading-relaxed">Office buildings, retail spaces and other commercial properties.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+          <div class="service-icon w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:bg-primary-200">
+            <i class="fas fa-clipboard-check text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-3 text-gray-800 group-hover:text-primary-700 transition-colors duration-300">Quality Control</h3>
+          <p class="text-gray-600 leading-relaxed">Rigorous inspections at every phase to ensure work meets our high standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="bg-gray-50 py-16 relative">
+    <div class="absolute inset-0 bg-center bg-grid-lines" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMDUsMjA1LDIwNSwxKSIvPjxyZWN0IHg9IjIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9InJnYmEoMjA1LDIwNSwyMDUsMSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJnYmEoMCwwLDAsMCkiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTpvdmVybGF5IiBvcGFjaXR5PSIxIi8+PC9zdmc+'); opacity: 0.05;"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center">
+        <!-- Image Column -->
+        <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12 animate-fade-in">
+          <div class="rounded-xl overflow-hidden shadow-2xl relative">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                 alt="Construction team working" class="w-full h-auto">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <h3 class="text-white text-xl font-bold">Our Latest Project</h3>
+              <p class="text-primary-200 mt-1">Modern residential complex, completed 2023</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Features Column -->
+        <div class="lg:w-1/2 animate-fade-in" style="animation-delay: 0.2s;">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Why <span class="text-primary-600">Choose Us</span> For Your Construction Needs
+          </h2>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            With over a decade of experience in the construction industry, we've honed our skills to deliver projects that combine beauty, functionality, and durability.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary-100 p-3 rounded-full mr-4 mt-1">
+                <i class="fas fa-check text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Skilled Professionals</h3>
+                <p class="text-gray-600">Our team comprises certified engineers, architects, and craftsmen with specialized training.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary-100 p-3 rounded-full mr-4 mt-1">
+                <i class="fas fa-check text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Quality Materials</h3>
+                <p class="text-gray-600">We partner with trusted suppliers to use only top-grade materials that meet international standards.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary-100 p-3 rounded-full mr-4 mt-1">
+                <i class="fas fa-check text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Project Management</h3>
+                <p class="text-gray-600">Dedicated project managers oversee every detail ensuring timelines and budgets are maintained.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-primary-100 p-3 rounded-full mr-4 mt-1">
+                <i class="fas fa-check text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Sustainable Practices</h3>
+                <p class="text-gray-600">Eco-friendly construction methods that reduce environmental impact without compromising quality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12 animate-fade-in">
+        <span class="inline-block bg-primary-100 text-primary-700 px-4 py-1.5 rounded-full mb-4 font-medium text-sm tracking-wide">
+          CLIENT TESTIMONIALS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          What Our <span class="text-primary-600">Clients Say</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Hear from property owners and partners who have worked with us.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
+              <i class="fas fa-user text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-800">Mr. David Molefe</h4>
+              <p class="text-sm text-gray-500">Residential Project</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">
+            "Joseton Construction delivered beyond our expectations. Our house was completed two weeks early and within budget. The attention to detail is remarkable."
+          </p>
+          <div class="flex text-primary-500">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
+              <i class="fas fa-user-tie text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-800">ABC Holdings Ltd.</h4>
+              <p class="text-sm text-gray-500">Commercial Complex</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">
+            "Their professionalism during our office building project was outstanding. They navigated complex regulations seamlessly and delivered a space that has boosted our productivity."
+          </p>
+          <div class="flex text-primary-500">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
+              <i class="fas fa-user-graduate text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-800">St. Joseph's School</h4>
+              <p class="text-sm text-gray-500">Educational Facility</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">
+            "The classroom block construction was handled with minimal disruption to our operations. The builders were considerate, and the finished product exceeded our specifications."
+          </p>
+          <div class="flex text-primary-500">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section with floating animation -->
+  <section class="bg-gradient-to-r from-primary — from-primary-800 to-primary-600 text-white py-20 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-5">
+      <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-full animate-float"></div>
+      <div class="absolute bottom-1/3 right-1/3 w-20 h-20 bg-white rounded-full animate-float" style="animation-delay: 2s;"></div>
+      <div class="absolute top-1/3 right-1/4 w-12 h-12 bg-white rounded-full animate-float" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h2 class="text-2xl md:text-4xl font-bold mb-6 animate-fade-in">
+        Ready to Bring Your Construction Vision to Life?
+      </h2>
+      <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in">
+        Contact us today for a free consultation and project estimate. Let's build something remarkable together.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up">
+        <a href="contact.html" class="bg-white text-primary-800 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center">
+          <i class="fas fa-phone-alt mr-2"></i> Call Us Now
+        </a>
+        <a href="contact.html" class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-primary-800 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center">
+          <i class="fas fa-envelope mr-2"></i> Send Message
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with improved layout -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <!-- About Column -->
+        <div class="animate-fade-in">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center mr-3">
+              <i class="fas fa-building text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold">Joseton Construction</h3>
+          </div>
+          <p class="text-gray-400 mb-4">Building excellence with integrity since 2010. We're committed to quality construction that stands the test of time.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="animate-fade-in" style="animation-delay: 0.1s;">
+          <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-primary-400">Our Services</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Residential Construction</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Commercial Projects</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Renovations</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Interior Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Landscaping</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+          <h3 class="text-lg font-bold mb-4 uppercase tracking-wider text-primary-400">Contact Info</h3>
+          <address class="not-italic space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary-400 mt-1 mr-3"></i>
+              <p class="text-gray-400">Plot 12345, Gaborone Central, Botswana</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone-alt text-primary-400 mr-3"></i>
+              <p class="text-gray-400">+267 71 402 710</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-primary-400 mr-3"></i>
+              <p class="text-gray-400">info@josetonconstruction.com</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-primary-400 mr-3"></i>
+              <p class="text-gray-400">Mon-Fri: 8AM - 5PM</p>
+            </div>
+          </address>
+        </div>
+        
+       
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm animate-fade-in">
+        <p>&copy; 2025 Joseton Construction Company. All rights reserved.</p>
+        <div class="mt-2">
+          <a href="#" class="hover:text-primary-400 transition-colors duration-300">Privacy Policy</a> | 
+          <a href="#" class="hover:text-primary-400 transition-colors duration-300">Terms of Service</a> | 
+          <a href="#" class="hover:text-primary-400 transition-colors duration-300">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle with smooth animation
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-fade-in, .animate-fade-in-up');
+        elements.forEach(el => {
+          const elementPosition = el.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (elementPosition < windowHeight - 100) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // Initialize elements as invisible
+      document.querySelectorAll('.animate-fade-in, .animate-fade-in-up').forEach(el => {
+        el.style.opacity = '0';
+        if (el.classList.contains('animate-fade-in-up')) {
+          el.style.transform = 'translateY(20px)';
+        }
+      });
+      
+      // Animate on initial load
+      animateOnScroll();
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', animateOnScroll);
+      
+      // Highlight current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

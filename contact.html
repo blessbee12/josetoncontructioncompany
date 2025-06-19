@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Joseton Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#001F3F',
+                        'gold': '#C5A866',
+                        'light-blue': '#EFF6FF',
+                        'steel': '#6B7280'
+                    },
+                    fontFamily: {
+                        'sans': ['"Open Sans"', 'sans-serif'],
+                        'serif': ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: linear-gradient(120deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 89, 179, 0.85) 100%), 
+                         url('https://images.unsplash.com/photo-1504309092620-4d0ecdebced0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+        }
+        .value-icon {
+            transition: transform 0.3s ease;
+        }
+        .value-item:hover .value-icon {
+            transform: scale(1.1);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            padding-bottom: 30px;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #0059b3;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 15px;
+            top: 28px;
+            bottom: 0;
+            width: 2px;
+            background-color: #0059b3;
+        }
+        @media (min-width: 768px) {
+            .history-container {
+                background: linear-gradient(90deg, transparent 50%, #f1f9ff 50%);
+            }
+        }
+        .parallax {
+            background-attachment: fixed;
+        }
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            transform: rotate(5deg);
+            background: #C5A866;
+            color: #001F3F;
+            padding: 8px 20px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }    
+        }
+        .featured-project::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 31, 63, 0.7), transparent 70%);
+            z-index: 1;
+        }
+        .cert-card {
+            transition: all 0.4s ease;
+            border: 1px solid #E5E7EB;
+        }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-color: #C5A866;
+        }
+        .safety-badge {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .stats-block {
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 31, 63, 0.85), rgba(0, 89, 179, 0.9));
+            z-index: -1;
+        }
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 4c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23001f3f' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans bg-light-blue text-gray-700">
+    <!-- Navigation -->
+    <nav class="bg-navy text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold flex items-center">
+                <i class="fas fa-hard-hat text-gold mr-2"></i>
+                <span>Joseton Construction</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-gold transition">Home</a>
+                <a href="#" class="hover:text-gold transition">About</a>
+                <a href="#" class="hover:text-gold transition">Services</a>
+                <a href="#" class="hover:text-gold transition">Projects</a>
+                <a href="#" class="hover:text-gold transition">Sustainability</a>
+                <a href="#" class="text-gold font-semibold border-b-2 border-gold pb-1">Contact</a>
+            </div>
+            <button class="md:hidden text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg py-32 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/40 to-navy-900/90"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-navy via-transparent to-navy"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+                Get In <span class="text-gold">Touch</span>
+            </h1>
+            <div class="flex justify-center">
+                <div class="relative py-3 px-6 rounded-full bg-white/10 backdrop-blur-sm inline-flex items-center">
+                    <span class="mr-2 animate-pulse">●</span> 
+                    <span>We'd love to hear from you</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Form Section -->
+        <section class="py-20 bg-gradient-to-br from-white to-light-blue">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
+                        Send Us a <span class="text-gold">Message</span>
+                    </h2>
+                    <div class="border-t-2 border-gold w-20 mx-auto"></div>
+                    <p class="text-lg mt-6 max-w-2xl mx-auto text-steel">
+                        Have questions about your next project? Fill out the form below and we'll get back to you within 24 hours.
+                    </p>
+                </div>
+
+                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-navy text-white p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-serif font-bold mb-6 text-gold">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p>+267 123 4567</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>info@josetonconstruction.co.bw</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Address</h4>
+                                    <p>Plot 123, Broadhurst<br>Gaborone, Botswana</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Business Hours</h4>
+                                    <p>Monday - Friday: 8AM - 5PM<br>Saturday: 9AM - 1PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <form id="contactForm">
+                                <div class="mb-6">
+                                    <label for="name" class="block text-sm font-medium text-steel mb-1">Full Name*</label>
+                                    <input type="text" id="name" name="name" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold focus:ring-2 focus:ring-gold/50">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-sm font-medium text-steel mb-1">Email*</label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold focus:ring-2 focus:ring-gold/50">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="phone" class="block text-sm font-medium text-steel mb-1">Phone</label>
+                                    <input type="tel" id="phone" name="phone" 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold focus:ring-2 focus:ring-gold/50">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="service" class="block text-sm font-medium text-steel mb-1">Service Interested In</label>
+                                    <select id="service" name="service" 
+                                            class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold focus:ring-2 focus:ring-gold/50">
+                                        <option value="">Select a service</option>
+                                        <option value="residential">Residential Construction</option>
+                                        <option value="commercial">Commercial Buildings</option>
+                                        <option value="renovation">Renovation Projects</option>
+                                        <option value="sustainable">Sustainable Construction</option>
+                                        <option value="infrastructure">Infrastructure Development</option>
+                                    </select>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-sm font-medium text-steel mb-1">Message*</label>
+                                    <textarea id="message" name="message" rows="4" required 
+                                              class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold focus:ring-2 focus:ring-gold/50"></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="w-full bg-gold text-navy font-bold py-3 px-6 rounded-lg hover:bg-navy hover:text-white transition duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="pb-20">
+            <div class="container mx-auto px-4">
+                <div class="rounded-xl overflow-hidden shadow-xl">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.125422240002!2d25.90842231539854!3d-24.18423708437582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDExJzAzLjIiUyAyNcKwNTQnMzAuMyJF!5e0!3m2!1sen!2sbw!4v1620000000000!5m2!1sen!2sbw" 
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+       
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-20 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-hard-hat text-gold mr-3"></i>
+                        Joseton Construction
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Building Botswana's future with integrity, craftsmanship, and innovation since 2010. 
+                        Our commitment to excellence has made us a trusted partner in construction across the nation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center hover:bg-gold hover:text-navy transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center hover:bg-gold hover:text-navy transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center hover:bg-gold hover:text-navy transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center hover:bg-gold hover:text-navy transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Residential Construction</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Commercial Buildings</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Renovation Projects</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Sustainable Construction</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Infrastructure Development</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Company</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Our Projects</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Team</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Sustainability</a></li>
+                        <li><a href="#" class="hover:text-gold transition flex items-center"><i class="fas fa-chevron-right text-xs text-gold mr-2"></i> Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold"></i>
+                            <span>Plot 123, Broadhurst<br>Gaborone, Botswana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gold"></i>
+                            <span>+267 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold"></i>
+                            <span>info@josetonconstruction.co.bw</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-gold"></i>
+                            <span>Mon-Fri: 8AM - 5PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-navy-700 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; 2023 Joseton Construction. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Crect fill='%23C5A866' width='100' height='100' rx='10'/%3E%3Cpath d='M50 30L60 45 55 70 45 70 40 45z' fill='%23001F3F'/%3E%3C/svg%3E" class="inline-block mr-2 w-6 h-6" alt="Icon">
+                    <span class="text-sm text-gray-400">Proudly Built in Botswana</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parallax effect for featured project
+            window.addEventListener('scroll', function() {
+                const scrollPos = window.scrollY;
+                document.querySelector('.parallax').style.backgroundPosition = 'center ' + (scrollPos * 0.5) + 'px';
+            });
+
+            // Animation for certification cards
+            const cards = document.querySelectorAll('.cert-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Mobile navigation toggle
+            const menuBtn = document.querySelector('button');
+            menuBtn.addEventListener('click', function() {
+                alert('Mobile navigation would open here');
+            });
+        });
+    </script>
+</body>
+</html>
