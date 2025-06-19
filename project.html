@@ -92,25 +92,42 @@
     </style>
 </head>
 <body class="font-sans bg-amber-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-amber-700 text-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-xl md:text-2xl font-bold flex items-center">
-                <i class="fas fa-hard-hat text-amber-300 mr-2"></i>
-                <span>Joseton Construction</span>
-            </a>
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="hover:text-amber-200 transition">Home</a>
-                <a href="about.html" class="hover:text-amber-200 transition">About</a>
-                <a href="services.html" class="hover:text-amber-200 transition">Services</a>
-                <a href="projects.html" class="text-amber-300 font-semibold">Projects</a>
-                <a href="contact.html" class="hover:text-amber-200 transition">Contact</a>
-            </div>
-            <button class="md:hidden text-xl">
-                <i class="fas fa-bars"></i>
-            </button>
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold flex items-center space-x-2">
+        <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white">
+          <i class="fas fa-building text-xl"></i>
         </div>
-    </nav>
+        <span class="heading-font text-gray-800">Joseton<span class="text-primary-600"> Construction.</span></span>
+      </a>
+      <nav class="hidden md:flex space-x-8 items-center">
+        <a href="index.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">About</a>
+        <a href="services.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Services</a>
+        <a href="project.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Projects</a>
+        <a href="contact.html" class="bg-primary-600 hover:bg-primary-700 px-6 py-2 rounded-full transition duration-300 shadow-md hover:shadow-lg text-white font-medium shine-effect">Contact Us</a>
+      </nav>
+      
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-4 shadow-lg">
+      <div class="flex flex-col space-y-4 pb-4">
+         <a href="index.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">About</a>
+        <a href="services.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Services</a>
+        <a href="project.html" class="text-gray-700 hover:text-primary-600 transition duration-300 underline-animation">Projects</a>
+        <a href="contact.html" class="bg-primary-600 hover:bg-primary-700 px-6 py-2 rounded-full transition duration-300 shadow-md hover:shadow-lg text-white font-medium shine-effect">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
 
     <!-- Hero Section -->
     <header class="hero-bg py-24 text-white text-center relative overflow-hidden">
