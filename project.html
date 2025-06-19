@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Joseton Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            50: '#FEF3C7',
+                            100: '#FDE68A',
+                            200: '#FCD34D',
+                            300: '#FBBF24',
+                            400: '#F59E0B',
+                            500: '#D97706',
+                            600: '#B45309',
+                            700: '#92400E',
+                            800: '#78350F',
+                            900: '#451A03',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(120deg, rgba(146, 64, 14, 0.9) 0%, rgba(180, 83, 9, 0.85) 100%),
+                         url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .project-tag {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover .project-tag {
+            background-color: #F59E0B;
+            color: white;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #FCD34D, #D97706);
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background-color: #D97706;
+            color: white;
+        }
+        .gallery-image {
+            transition: transform 0.5s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+        .testimonial-card {
+            position: relative;
+        }
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: rgba(251, 191, 36, 0.2);
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="font-sans bg-amber-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-amber-700 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold flex items-center">
+                <i class="fas fa-hard-hat text-amber-300 mr-2"></i>
+                <span>Joseton Construction</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-amber-200 transition">Home</a>
+                <a href="about.html" class="hover:text-amber-200 transition">About</a>
+                <a href="services.html" class="hover:text-amber-200 transition">Services</a>
+                <a href="projects.html" class="text-amber-300 font-semibold">Projects</a>
+                <a href="contact.html" class="hover:text-amber-200 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg py-24 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-4 leading-tight">
+                Our <span class="text-amber-300">Projects</span>
+            </h1>
+            <div class="border-t-2 border-amber-400 w-32 mx-auto mb-6"></div>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">Building Botswana's Future, One Project at a Time</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Projects Filter -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Our Portfolio</h2>
+                    <p class="text-lg mt-4 max-w-2xl mx-auto">Explore our completed projects across Botswana</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="filter-btn px-4 py-2 rounded-full border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white active" data-filter="all">
+                        All Projects
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white" data-filter="residential">
+                        Residential
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white" data-filter="commercial">
+                        Commercial
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white" data-filter="renovation">
+                        Renovations
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white" data-filter="sustainable">
+                        Sustainable
+                    </button>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="residential">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Modern House" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Residential
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Gaborone Hills Residence</h3>
+                            <p class="text-gray-600 mb-4">A modern 5-bedroom luxury home with sustainable features in one of Gaborone's most prestigious neighborhoods.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2022</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="commercial">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Office Building" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Commercial
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Francistown Business Hub</h3>
+                            <p class="text-gray-600 mb-4">A state-of-the-art commercial complex featuring office spaces, retail outlets, and conference facilities.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2021</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="sustainable">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Eco House" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Sustainable
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Maun Eco Village</h3>
+                            <p class="text-gray-600 mb-4">A community of 12 eco-friendly homes featuring solar power, rainwater harvesting, and sustainable materials.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2023</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="renovation">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Renovated Home" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Renovation
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Mogoditshane Heritage Home</h3>
+                            <p class="text-gray-600 mb-4">Restoration and modernization of a historic family home while preserving its original character and charm.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2020</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="commercial">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Shopping Center" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Commercial
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Kasane Retail Center</h3>
+                            <p class="text-gray-600 mb-4">A vibrant shopping destination featuring 25 retail units, food court, and ample parking space.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2021</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="residential">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Apartment Complex" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-amber-700 font-semibold text-sm project-tag">
+                                Residential
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-amber-900 mb-2">Lobatse Garden Apartments</h3>
+                            <p class="text-gray-600 mb-4">A 24-unit apartment complex with communal gardens, swimming pool, and 24/7 security.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-semibold">Completed: 2022</span>
+                                <a href="project-detail.html" class="text-amber-700 hover:text-amber-900 font-semibold flex items-center">
+                                    View More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-block px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition duration-300 font-semibold">
+                        <i class="fas fa-eye mr-2"></i>View All Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Gallery -->
+        <section class="py-16 bg-amber-100">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Project Gallery</h2>
+                    <p class="text-lg mt-4 max-w-2xl mx-auto">A visual journey through our construction process</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Construction Site" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Team Working" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Modern Architecture" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="House Interior" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Construction Site" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600566752223-8a43d5467d4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Building Facade" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Eco House" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Luxury Home" class="w-full h-48 object-cover">
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-block px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition duration-300 font-semibold">
+                        <i class="fas fa-images mr-2"></i>View Full Gallery
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="section-title text-3xl md:text-4xl font-serif font-bold text-amber-900">Client Testimonials</h2>
+                    <p class="text-lg mt-4 max-w-2xl mx-auto">What our clients say about working with us</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <div class="testimonial-card bg-amber-50 p-8 rounded-xl shadow-lg relative">
+                        <div class="flex items-center mb-6">
+                            <div class="rounded-full overflow-hidden w-16 h-16 border-2 border-amber-300">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-amber-900">Mpho Tshwene</h3>
+                                <p class="text-amber-600">Gaborone Hills Residence</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic relative z-10">
+                            "Joseton Construction transformed our home renovation into a dream come true. Their attention to detail and commitment to quality exceeded our expectations. The team was professional, respectful, and delivered on time despite challenges."
+                        </p>
+                        <div class="mt-6 flex">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card bg-amber-50 p-8 rounded-xl shadow-lg relative">
+                        <div class="flex items-center mb-6">
+                            <div class="rounded-full overflow-hidden w-16 h-16 border-2 border-amber-300">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-amber-900">Tebogo Molefe</h3>
+                                <p class="text-amber-600">Francistown Business Hub</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic relative z-10">
+                            "We chose Joseton for our new office complex, and it was the best decision we made. Their expertise in sustainable construction saved us 25% on energy costs. The project manager kept us informed at every stage, and the final result was beyond impressive."
+                        </p>
+                        <div class="mt-6 flex">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-amber-700 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Ready to Start Your Project?</h2>
+                <p class="text-xl max-w-2xl mx-auto mb-8">Let's discuss how we can bring your vision to life with quality craftsmanship and exceptional service.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="contact.html" class="px-8 py-3 bg-white text-amber-700 rounded-lg hover:bg-amber-100 transition duration-300 font-semibold">
+                        Get a Free Quote
+                    </a>
+                    <a href="tel:+2671234567" class="px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-amber-700 transition duration-300 font-semibold">
+                        <i class="fas fa-phone mr-2"></i> Call Us Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-hard-hat text-amber-300 mr-2"></i>
+                        Joseton Construction
+                    </h3>
+                    <p class="text-amber-100">
+                        Building Botswana's future with integrity and craftsmanship since 2010.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-amber-100 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-amber-100">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="careers.html" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2 text-amber-100">
+                        <li><a href="#" class="hover:text-white transition">Residential Construction</a></li>
+                        <li><a href="#" class="hover:text-white transition">Commercial Buildings</a></li>
+                        <li><a href="#" class="hover:text-white transition">Renovations & Remodeling</a></li>
+                        <li><a href="#" class="hover:text-white transition">Project Management</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sustainable Construction</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-amber-100">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-300"></i>
+                            <span>Plot 123, Broadhurst<br>Gaborone, Botswana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-amber-300"></i>
+                            <span>+267 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-amber-300"></i>
+                            <span>info@josetonconstruction.co.bw</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-amber-800 text-center text-amber-200">
+                <p>&copy; 2023 Joseton Construction. Built with pride in Botswana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Project Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Initialize gallery lightbox (would need additional library like lightbox.js for full functionality)
+            const galleryImages = document.querySelectorAll('.gallery-image');
+            galleryImages.forEach(image => {
+                image.addEventListener('click', function() {
+                    // In a real implementation, this would open a lightbox
+                    console.log('Opening image in lightbox');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
